@@ -6,14 +6,14 @@
       margin: '0 auto',
     }"
   >
-    <div v-if="hasOverlay" class="product-card__overlay" />
+    <div v-if="hasOverlay" class="product-card__overlay"></div>
     <img
       :src="image"
       :alt="product.name"
+      class="img-fluid product-card__image"
       @click="handleClick"
       @mouseover="handleMouseover"
       @mouseleave="handleMouseleave"
-      class="img-fluid product-card__image"
     />
     <figcaption
       :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
@@ -24,11 +24,9 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue';
+import { defineComponent } from 'vue';
 
-import { IProduct } from '@/store/modules/products/products.types';
-
-export default Vue.extend({
+export default defineComponent({
   name: 'ProductCard',
   props: {
     width: {
@@ -48,7 +46,7 @@ export default Vue.extend({
           img: '',
         };
       },
-    } as PropOptions<IProduct>,
+    },
     hasHover: {
       default: false,
       type: Boolean,

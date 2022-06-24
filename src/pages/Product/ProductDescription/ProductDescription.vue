@@ -25,7 +25,7 @@ import Vue from 'vue';
 
 import Button from 'components/base/Button';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ProductDescription',
   components: {
     Button,

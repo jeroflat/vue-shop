@@ -4,8 +4,8 @@
       <button
         v-for="filter in filters"
         :key="filter.id"
-        @click="handleFilterClick(filter)"
         class="toolbar__button"
+        @click="handleFilterClick(filter)"
       >
         <Icon :name="filter.icon" :selected="filter.id === selected" />
       </button>
@@ -14,12 +14,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import Icon from 'components/base/Icon';
+import { defineComponent } from 'vue';
+import Icon from '@/components/base/Icon';
 
 import { IDataToolbar, Filter } from './toolbar.types';
 
-export default Vue.extend({
+export default defineComponent({
+  name: 'ToolBar',
   components: {
     Icon,
   },

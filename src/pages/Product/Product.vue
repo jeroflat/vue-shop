@@ -22,7 +22,7 @@ import ProductDescription from './ProductDescription';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Product',
   components: {
     ProductDescription,

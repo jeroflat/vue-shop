@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <footer class="footer">
     <p class="text-center">Copyright</p>
   </footer>

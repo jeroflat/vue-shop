@@ -9,8 +9,8 @@
         alt="logo"
       />
     </router-link>
-    <button @click="handleToggleMenu" class="navbar-toggler" type="button">
-      <span class="navbar-toggler-icon" />
+    <button class="navbar-toggler" type="button" @click="handleToggleMenu">
+      <span class="navbar-toggler-icon"></span>
     </button>
 
     <div :class="{ show: isMenuToggled }" class="collapse navbar-collapse">
@@ -30,16 +30,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-
+import { defineComponent } from 'vue';
 import { createNamespacedHelpers } from 'vuex';
 
-import Icon from 'components/base/Icon';
+import Icon from '@/components/base/Icon';
 
 const { mapState } = createNamespacedHelpers('cart');
 
-export default Vue.extend({
-  name: 'Navigation',
+export default defineComponent({
+  name: 'NavigationThe',
   components: {
     Icon,
   },
@@ -83,6 +82,7 @@ export default Vue.extend({
     };
   },
   methods: {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     applyScroll() {},
     handleToggleMenu() {
       this.isMenuToggled = !this.isMenuToggled;
@@ -92,12 +92,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import '~styles/mixins';
 .navigation {
-  @include flex();
-  @include element(cart) {
-    margin-left: 0.5rem;
-    position: relative;
-  }
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation__ {
+  margin-left: 0.5rem;
+  position: relative;
 }
 </style>

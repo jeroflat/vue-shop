@@ -8,7 +8,7 @@
 import Vue from 'vue';
 import classNames from 'classnames';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Button',
   props: {
     type: {

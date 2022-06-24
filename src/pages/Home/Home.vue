@@ -16,14 +16,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { createNamespacedHelpers } from 'vuex';
 
-import ProductCard from 'components/ProductCard.vue';
+import ProductCard from '@/components/ProductCard.vue';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default Vue.extend({
+export default defineComponent({
+  name: 'HomePage',
   components: {
     ProductCard,
   },

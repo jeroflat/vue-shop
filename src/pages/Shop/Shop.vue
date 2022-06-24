@@ -23,7 +23,7 @@ import Toolbar from 'components/Toolbar';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     ProductCard,
     Toolbar,

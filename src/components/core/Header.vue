@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
 import Navigation from './Navigation.vue';
 
-export default Vue.extend({
-  name: 'Header',
+export default defineComponent({
+  name: 'ShopHeader',
   components: {
     Navigation,
   },

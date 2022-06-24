@@ -1,18 +1,16 @@
 <template>
-  <!-- <Layout /> -->
-
-  <h1>yeah nigga</h1>
+  <LayoutContainer />
 </template>
 
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-// import Layout from './Layout.vue';
+import LayoutContainer from './LayoutContainer.vue';
 
 defineComponent({
   name: 'App',
-  // components: {
-  //   Layout,
-  // },
+  components: {
+    LayoutContainer,
+  },
 });
 </script>
 
