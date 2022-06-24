@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "api": ["./src/api/api.ts"],
+      "api": ["./src/api/api.ts"]
     },
     "target": "ES2018",
     "module": "ESNext",
