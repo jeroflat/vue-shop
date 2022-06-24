@@ -1,13 +1,10 @@
-import Vue from 'vue';
-import Vuex, { StoreOptions } from 'vuex';
+import { StoreOptions, createStore } from 'vuex';
 
 import cart from './modules/cart';
 import products from './modules/products';
 import users from './modules/users';
 
 import { IRootState } from './store.types';
-// @ts-ignore
-Vue.use(Vuex);
 
 const store: StoreOptions<IRootState> = {
   modules: {
@@ -17,4 +14,4 @@ const store: StoreOptions<IRootState> = {
   },
 };
 
-export default new Vuex.Store<IRootState>(store);
+export default createStore(store);
