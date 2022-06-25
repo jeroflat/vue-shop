@@ -29,9 +29,10 @@
   </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 import { createNamespacedHelpers } from 'vuex-composition-helpers';
+
 import Icon from '@/components/base/Icon';
 
 const { useState } = createNamespacedHelpers('cart'); // specific module name
@@ -54,28 +55,13 @@ const links = [
   },
 ];
 
-export default defineComponent({
-  components: {
-    Icon,
-  },
-  setup() {
-    const isActive = ref(false);
-    const isMenuToggled = ref(false);
-    const { count } = useState(['count']);
+const isActive = ref(false);
+const isMenuToggled = ref(false);
+const { count } = useState(['count']);
 
-    const handleToggleMenu = () => {
-      isMenuToggled.value = !isMenuToggled.value;
-    };
-
-    return {
-      isActive,
-      isMenuToggled,
-      links,
-      count,
-      handleToggleMenu,
-    };
-  },
-});
+const handleToggleMenu = () => {
+  isMenuToggled.value = !isMenuToggled.value;
+};
 </script>
 
 <style lang="scss">
