@@ -30,66 +30,49 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { createNamespacedHelpers } from 'vuex';
+import { defineComponent, ref } from 'vue';
 
 import Icon from '@/components/base/Icon';
 
-const { mapState } = createNamespacedHelpers('cart');
-
-// eslint-disable-next-line no-console
-console.log('mapState([count])', mapState(['count']));
+const links = [
+  {
+    id: 'Home',
+    name: 'Home',
+    to: '/',
+  },
+  {
+    id: 'About',
+    name: 'About',
+    to: '/',
+  },
+  {
+    id: 'Shop',
+    name: 'Shop',
+    to: '/shop',
+  },
+];
 
 export default defineComponent({
   name: 'ShopNav',
   components: {
     Icon,
   },
-  data() {
+  setup() {
+    const isActive = ref(false);
+    const isMenuToggled = ref(false);
+    const count = 0;
+
+    const handleToggleMenu = () => {
+      isMenuToggled.value = !isMenuToggled.value;
+    };
+
     return {
-      isActive: false,
-      isMenuToggled: false,
-      links: [
-        {
-          id: 'Home',
-          name: 'Home',
-          to: '/',
-        },
-        {
-          id: 'About',
-          name: 'About',
-          to: '/',
-        },
-        {
-          id: 'Shop',
-          name: 'Shop',
-          to: '/shop',
-        },
-      ],
+      isActive,
+      isMenuToggled,
+      links,
+      count,
+      handleToggleMenu,
     };
-  },
-  computed: {
-    ...mapState(['count']),
-  },
-  mounted() {
-    const scrollFunction = () => {
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        this.applyScroll();
-      } else {
-        this.applyScroll();
-      }
-    };
-    // When the user scrolls down 50px from the top of the document, resize the header's font size
-    window.onscroll = function onscroll() {
-      scrollFunction();
-    };
-  },
-  methods: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    applyScroll() {},
-    handleToggleMenu() {
-      this.isMenuToggled = !this.isMenuToggled;
-    },
   },
 });
 </script>
