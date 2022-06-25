@@ -31,8 +31,10 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-
+import { createNamespacedHelpers } from 'vuex-composition-helpers';
 import Icon from '@/components/base/Icon';
+
+const { useState } = createNamespacedHelpers('cart'); // specific module name
 
 const links = [
   {
@@ -53,14 +55,13 @@ const links = [
 ];
 
 export default defineComponent({
-  name: 'ShopNav',
   components: {
     Icon,
   },
   setup() {
     const isActive = ref(false);
     const isMenuToggled = ref(false);
-    const count = 0;
+    const { count } = useState(['count']);
 
     const handleToggleMenu = () => {
       isMenuToggled.value = !isMenuToggled.value;
