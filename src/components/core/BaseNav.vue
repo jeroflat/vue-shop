@@ -37,8 +37,11 @@ import Icon from '@/components/base/Icon';
 
 const { mapState } = createNamespacedHelpers('cart');
 
+// eslint-disable-next-line no-console
+console.log('mapState([count])', mapState(['count']));
+
 export default defineComponent({
-  name: 'NavigationThe',
+  name: 'ShopNav',
   components: {
     Icon,
   },

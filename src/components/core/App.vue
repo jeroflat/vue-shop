@@ -1,15 +1,15 @@
 <template>
-  <LayoutContainer />
+  <BaseLayout />
 </template>
 
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import LayoutContainer from './LayoutContainer.vue';
+import BaseLayout from './BaseLayout.vue';
 
 defineComponent({
   name: 'App',
   components: {
-    LayoutContainer,
+    BaseLayout,
   },
 });
 </script>
