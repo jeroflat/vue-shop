@@ -1,9 +1,8 @@
 <template>
   <section>
-    <h1 class="display-3 text-center mt-3">
-      {{ heading }}
-    </h1>
-    <div class="row">
+    <h1 class="display-3 text-center mt-3">Shop</h1>
+
+    <!-- <div class="row">
       <ProductCard
         v-for="product in products"
         :key="product.id"
@@ -11,32 +10,19 @@
         :product="product"
         hasverlay
       />
-    </div>
+    </div> -->
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { createNamespacedHelpers } from 'vuex';
+<script setup lang="ts">
+import { createNamespacedHelpers } from 'vuex-composition-helpers';
+// import ProductCard from '@/components/ProductCard.vue';
 
-import ProductCard from '@/components/ProductCard.vue';
+const { useState, useActions } = createNamespacedHelpers('products');
+const { fetchProducts } = useActions(['fetchProducts']);
+const { products } = useState(['products']);
 
-const { mapState, mapActions } = createNamespacedHelpers('products');
-
-export default defineComponent({
-  name: 'HomePage',
-  components: {
-    ProductCard,
-  },
-  data() {
-    return {
-      heading: 'Shop',
-    };
-  },
-  computed: mapState(['products']),
-  created(): void {
-    this.fetchProducts();
-  },
-  methods: mapActions(['fetchProducts']),
-});
+if (products.value.length === 0) {
+  fetchProducts();
+}
 </script>
