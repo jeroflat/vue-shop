@@ -64,6 +64,7 @@ const handleMouseleave = (): void => {
 
 <style lang="scss">
 .product-card {
+  text-align: center;
   position: relative;
 }
 
